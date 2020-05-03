@@ -9,15 +9,17 @@ func checkInRange(num, start, end int) bool {
 	return num >= start && num <= end
 }
 
-func TestGetRint(t *testing.T) {
+func TestGen(t *testing.T) {
+	rint.Init()
 	testLimit := 10
-	actual := rint.GetRint(testLimit)
-	if !checkInRange(rint.GetRint(testLimit), 0, 9) {
-		t.Errorf("The GetRint test has generated an illegal value outside of the range 0, 9.  testLimit: %d, actual: %d", testLimit, actual)
+	actual := rint.Gen(testLimit)
+	if !checkInRange(rint.Gen(testLimit), 0, 9) {
+		t.Errorf("The Gen test has generated an illegal value outside of the range 0, 9.  testLimit: %d, actual: %d", testLimit, actual)
 	}
 }
 
-func TestGetRintRange(t *testing.T) {
+func TestGenRange(t *testing.T) {
+	rint.Init()
 	cases := []struct {
 		tMin, tMax int
 	}{
@@ -40,8 +42,8 @@ func TestGetRintRange(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		if !checkInRange(rint.GetRintRange(c.tMin, c.tMax), c.tMin, c.tMax) {
-			t.Errorf("The GetRintRange test has generated a value outside of the range. Range: Min: %d, Max: %d", c.tMin, c.tMax)
+		if !checkInRange(rint.GenRange(c.tMin, c.tMax), c.tMin, c.tMax) {
+			t.Errorf("The GenRange test has generated a value outside of the range. Range: Min: %d, Max: %d", c.tMin, c.tMax)
 		}
 	}
 }
