@@ -3,7 +3,6 @@ package rint
 import (
 	crypto_rand "crypto/rand"
 	"encoding/binary"
-	"fmt"
 	math_rand "math/rand"
 )
 
