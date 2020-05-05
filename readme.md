@@ -3,13 +3,13 @@
 
 ## Install
  ```go
-go get github.com/ru-lai/node-prune
+go get github.com/tlboright/go-rint
 ```
 
 ## Usage
 ```go
 rint.Init()
-// seeds the pseudorandom number generator before you use the library
+// seeds the pseudorandom number generator
 
 rint.Gen(10)
 //=> 6
