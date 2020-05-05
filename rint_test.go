@@ -1,7 +1,7 @@
 package rint_test
 
 import (
-	"github.com/ru-lai/go-rint"
+	"github.com/tlboright/go-rint"
 	"testing"
 )
 
