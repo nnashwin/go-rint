@@ -11,10 +11,22 @@ func checkInRange(num, start, end int) bool {
 
 func TestGen(t *testing.T) {
 	rint.Init()
-	testLimit := 10
-	actual := rint.Gen(testLimit)
-	if !checkInRange(rint.Gen(testLimit), 0, 9) {
-		t.Errorf("The Gen test has generated an illegal value outside of the range 0, 9.  testLimit: %d, actual: %d", testLimit, actual)
+	cases := []struct {
+		tLimit int
+	}{
+		{
+			tLimit: 10,
+		},
+		{
+			tLimit: 0,
+		},
+	}
+
+	for _, c := range cases {
+		actual := rint.Gen(c.tLimit)
+		if !checkInRange(actual, 0, c.tLimit) {
+			t.Errorf("The Gen test has generated an illegal value outside of the range 0, 9.  tLimit: %d, actual: %d", c.tLimit, actual)
+		}
 	}
 }
 
@@ -38,6 +50,10 @@ func TestGenRange(t *testing.T) {
 		{
 			tMin: 4000,
 			tMax: 5000,
+		},
+		{
+			tMin: 0,
+			tMax: 0,
 		},
 	}
 

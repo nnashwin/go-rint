@@ -16,9 +16,15 @@ func Init() {
 }
 
 func Gen(max int) int {
+	if max == 0 {
+		return 0
+	}
 	return math_rand.Intn(max)
 }
 
 func GenRange(min, max int) int {
+	if max == 0 {
+		return 0
+	}
 	return math_rand.Intn(max-min) + min
 }
